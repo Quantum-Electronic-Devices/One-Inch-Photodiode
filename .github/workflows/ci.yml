@@ -179,6 +179,8 @@ jobs:
     name: 'Upload manufacturing files to release'
     runs-on: ubuntu-latest
     needs: [tests, fabrication_output]
+    permissions:
+      contents: write
     if: github.event.action == 'published'
     strategy:
       matrix:
