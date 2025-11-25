@@ -2608,6 +2608,12 @@
 		(uuid "46aa250c-e121-483c-9fe8-4eaf44abec87")
 	)
 	(junction
+		(at 201.93 101.6)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "47b7ccf5-f1ac-4768-bebb-debf69f24c8f")
+	)
+	(junction
 		(at 76.2 72.39)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -2801,7 +2807,7 @@
 	)
 	(wire
 		(pts
-			(xy 201.93 100.33) (xy 201.93 104.14)
+			(xy 208.28 100.33) (xy 208.28 101.6)
 		)
 		(stroke
 			(width 0)
@@ -3058,6 +3064,16 @@
 			(type default)
 		)
 		(uuid "68e22777-44a6-4960-b8db-6a0f1f0f1978")
+	)
+	(wire
+		(pts
+			(xy 208.28 101.6) (xy 201.93 101.6)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6bb67c4f-48c1-45c5-8219-37f4f42a09f9")
 	)
 	(wire
 		(pts
@@ -3401,6 +3417,16 @@
 	)
 	(wire
 		(pts
+			(xy 201.93 101.6) (xy 201.93 104.14)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a94522c3-e54a-4c54-ada6-2cdd4e8416cb")
+	)
+	(wire
+		(pts
 			(xy 60.96 73.66) (xy 60.96 77.47)
 		)
 		(stroke
@@ -3438,6 +3464,16 @@
 			(type default)
 		)
 		(uuid "c12010be-fb70-44c1-82ce-05512da08ca9")
+	)
+	(wire
+		(pts
+			(xy 201.93 97.79) (xy 201.93 101.6)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c5feacc6-cf57-4430-8277-0a50c67de05f")
 	)
 	(wire
 		(pts
@@ -4322,7 +4358,7 @@
 	)
 	(symbol
 		(lib_id "Mechanical:MountingHole_Pad")
-		(at 201.93 97.79 0)
+		(at 208.28 97.79 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom no)
@@ -4331,7 +4367,7 @@
 		(fields_autoplaced yes)
 		(uuid "25ae8378-f37b-4a2e-805d-20f0b22bc767")
 		(property "Reference" "H1"
-			(at 204.47 95.2499 0)
+			(at 210.82 95.2499 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4340,7 +4376,7 @@
 			)
 		)
 		(property "Value" "MountingHole_Pad"
-			(at 204.47 97.7899 0)
+			(at 210.82 97.7899 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4349,7 +4385,7 @@
 			)
 		)
 		(property "Footprint" "Connector_Wire:SolderWirePad_1x01_SMD_1x2mm"
-			(at 201.93 97.79 0)
+			(at 208.28 97.79 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4358,7 +4394,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 201.93 97.79 0)
+			(at 208.28 97.79 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4367,7 +4403,7 @@
 			)
 		)
 		(property "Description" "Mounting Hole with connection"
-			(at 201.93 97.79 0)
+			(at 208.28 97.79 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4376,7 +4412,7 @@
 			)
 		)
 		(property "MFN" ""
-			(at 201.93 97.79 0)
+			(at 208.28 97.79 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4385,7 +4421,7 @@
 			)
 		)
 		(property "PN" ""
-			(at 201.93 97.79 0)
+			(at 208.28 97.79 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4394,7 +4430,7 @@
 			)
 		)
 		(property "RoHS" ""
-			(at 201.93 97.79 0)
+			(at 208.28 97.79 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4403,7 +4439,7 @@
 			)
 		)
 		(property "Temperature" ""
-			(at 201.93 97.79 0)
+			(at 208.28 97.79 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4589,6 +4625,72 @@
 			(project "oip_opa818"
 				(path "/bc1f768a-38ac-49f6-bd7e-5ad2d645b686"
 					(reference "#PWR07")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:PWR_FLAG")
+		(at 201.93 97.79 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "4265b0cf-353b-4484-91f9-24ff0c41e3e8")
+		(property "Reference" "#FLG04"
+			(at 201.93 95.885 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "PWR_FLAG"
+			(at 201.93 92.71 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 201.93 97.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 201.93 97.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Special symbol for telling ERC where power comes from"
+			(at 201.93 97.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "157cad22-3809-4d75-be53-ece38485e7d3")
+		)
+		(instances
+			(project ""
+				(path "/bc1f768a-38ac-49f6-bd7e-5ad2d645b686"
+					(reference "#FLG04")
 					(unit 1)
 				)
 			)
