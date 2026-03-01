@@ -7425,6 +7425,18 @@
 			(justify left top)
 		)
 	)
+	(gr_text "Manufacturing Instruction:\n- Material FR-4\n- Finished thickness: 1.57 mm ± 0.13 mm\n- PCBs must be RoHS compliant\n- Do not edit artwork, e.g. to add logos\n   or order numbers\n- Clean to meet IPC J-STD-001E, Class 2\n   after assembly"
+		(at 150 45 0)
+		(layer "Cmts.User")
+		(uuid "586d766e-8710-4e8b-8286-c6388c66ff86")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+			(justify left bottom)
+		)
+	)
 	(gr_text "4,5"
 		(at 244.235716 83.906 0)
 		(layer "Cmts.User")
