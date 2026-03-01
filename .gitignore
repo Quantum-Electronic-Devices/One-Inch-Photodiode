@@ -32,5 +32,6 @@ footprints_project_specific.3dshapes
 # Automatically generated files #
 #################################
 gerber/*
+gerber_files/*
 /*.csv
 /*.xlsx
