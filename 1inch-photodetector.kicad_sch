@@ -2628,16 +2628,6 @@
 			(embedded_fonts no)
 		)
 	)
-	(text "TODO: Replace with HRG3216P-49R9-D-T1"
-		(exclude_from_sim no)
-		(at 164.846 48.768 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-		)
-		(uuid "c1212f4d-cdbe-4003-bd10-33ffcbaacfa2")
-	)
 	(junction
 		(at 41.91 158.75)
 		(diameter 0)
@@ -4473,7 +4463,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Susumu"
+		(property "Description" "Resistor"
 			(at 153.67 59.69 0)
 			(effects
 				(font
@@ -4482,7 +4472,7 @@
 				(hide yes)
 			)
 		)
-		(property "MFN" "Yageo"
+		(property "MFN" "Susumu"
 			(at 153.67 59.69 0)
 			(effects
 				(font
