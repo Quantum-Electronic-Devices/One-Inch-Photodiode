@@ -22,6 +22,8 @@ on:
 
 jobs:
   create_manufacturing_files:
+    permissions:
+      contents: write
     strategy:
       matrix:
         project:

@@ -24,6 +24,8 @@ jobs:
   tests:
     name: Run tests
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     outputs:
       revision: ${{ steps.extract_sch_revision.outputs.value }}
       basename: ${{ steps.repo-basename.outputs.value }}
@@ -87,6 +89,8 @@ jobs:
   ERC:
     name: Run ERC
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     needs: tests
 
     steps:
@@ -114,6 +118,8 @@ jobs:
     name: Run DRC
     runs-on: ubuntu-latest
     needs: tests
+    permissions:
+      contents: read
 
     steps:
       - name: Download repository
@@ -140,6 +146,8 @@ jobs:
     name: 'Produce fabrication outputs'
     runs-on: ubuntu-latest
     needs: [ERC, DRC]
+    permissions:
+      contents: read
     strategy:
       matrix:
         variant: ${{ fromJSON(inputs.variants) }}
