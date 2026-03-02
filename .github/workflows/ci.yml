@@ -10,7 +10,7 @@ on:
       - '**.kicad_sch'
       - '**.kicad_pcb'
       - 'KiCAD/footprints.pretty/*'
-      - '.github/workflows/ci.yml'
+      - '.github/workflows/*.yml'
       - 'KiCAD/config.kibot.yaml'
       - 'KiCAD/bom.ini'
     # Ignore the push event when creating tags
@@ -22,6 +22,8 @@ on:
 
 jobs:
   create_manufacturing_files:
+    permissions:
+      contents: write
     strategy:
       matrix:
         project:
