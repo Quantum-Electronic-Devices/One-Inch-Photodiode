@@ -141,7 +141,7 @@ jobs:
           config: ${{ inputs.config }}
           schema: ${{ inputs.schematic }}
           board: ${{ inputs.pcb }}
-          skip: run_erc,run_drc
+          skip: erc,drc
           variant: ${{ matrix.variant }}
           verbose: 0  # use 3 for debugging
 
