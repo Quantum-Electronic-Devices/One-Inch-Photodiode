@@ -109,10 +109,11 @@ jobs:
           targets: __NONE__  # Only run preflights
 
       - name: Upload results
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v7
         with:
           name: ${{ inputs.name }}_ERC_Output
           path: generated
+          retention-days: 7
 
   DRC:
     name: Run DRC
@@ -137,10 +138,11 @@ jobs:
           targets: __NONE__  # Only run preflights
 
       - name: Upload results
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v7
         with:
           name: ${{ inputs.name }}_DRC_Output
           path: generated
+          retention-days: 7
 
   fabrication_output:
     name: 'Produce fabrication outputs'
@@ -167,22 +169,25 @@ jobs:
           verbose: 0  # use 3 for debugging
 
       - name: Upload bill of materials files as artifact
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v7
         with:
           name: ${{ inputs.name }}-manufacturing_files-bom-${{ matrix.variant }}
           path: bom_files_compressed
+          retention-days: 7
 
       - name: Upload schematic files as artifact
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v7
         with:
           name: ${{ inputs.name }}-manufacturing_files-schematics-${{ matrix.variant }}
           path: schematics
+          retention-days: 7
 
       - name: Upload Gerber files as artifact
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v7
         with:
           name: ${{ inputs.name }}-manufacturing_files-gerber-${{ matrix.variant }}
           path: gerber_files_compressed
+          retention-days: 7
 
   release:
     name: 'Upload manufacturing files to release'
@@ -196,7 +201,7 @@ jobs:
         variant: ${{ fromJSON(inputs.variants) }}
     steps:
       - name: Download manufacturing files artifact
-        uses: actions/download-artifact@v6
+        uses: actions/download-artifact@v8
         with:
           path: ${{ inputs.name }}-manufacturing_files
           pattern: ${{ inputs.name }}-manufacturing_files-*

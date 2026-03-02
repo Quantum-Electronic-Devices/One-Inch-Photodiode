@@ -3969,7 +3969,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "custom_footprints_project:SMP_TE_CONSMP001-SMD-G-T_Vertical"
+		(property "Footprint" "Custom_footprints_project:SMP_TE_CONSMP001-SMD-G-T_Vertical"
 			(at 173.99 59.69 0)
 			(effects
 				(font
@@ -6255,7 +6255,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "custom_footprints_project:QED-logo_small"
+		(property "Footprint" "Custom_footprints_project:QED-logo_small"
 			(at 255.27 171.45 0)
 			(effects
 				(font
