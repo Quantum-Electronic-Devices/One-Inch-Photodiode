@@ -50,6 +50,12 @@ jobs:
           echo "value=$(perl -0777 -ne "print /\(title_block.+\(rev \"(.+?)\"\)/sg" ${{ inputs.pcb }})" >>${GITHUB_OUTPUT}
         shell: bash
 
+      - name: Extract PCB revision label
+        id: extract_pcb_revision_label
+        run: |
+          echo "value=$(perl -0777 -ne "print /\(gr_text \".+\\nVersion: (.+?)\\n/g" ${{ inputs.pcb }})" >>${GITHUB_OUTPUT}
+        shell: bash
+
       - name: Test if the revision number was extracted
         if: steps.extract_sch_revision.outputs.value == ''
         run: |
@@ -61,6 +67,13 @@ jobs:
         if: steps.extract_sch_revision.outputs.value != steps.extract_pcb_revision.outputs.value
         run: |
           echo "::error::Revision number of the schematic (${{ steps.extract_sch_revision.outputs.value }}) does not match PCB (${{ steps.extract_pcb_revision.outputs.value }}) revision."
+          exit 1
+        shell: bash
+
+      - name: Test revision label == pcb revision
+        if: steps.extract_pcb_revision_label.outputs.value != steps.extract_pcb_revision.outputs.value
+        run: |
+          echo "::error::Revision number of the PCB label (${{ steps.extract_pcb_revision_label.outputs.value }}) does not match PCB (${{ steps.extract_pcb_revision.outputs.value }}) revision."
           exit 1
         shell: bash
 
