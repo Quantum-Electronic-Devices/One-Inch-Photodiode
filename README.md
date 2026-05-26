@@ -3,6 +3,11 @@
 # 1″-Photodetector
 This repository contains the [KiCad](https://www.kicad.org/) schematics and design files for the [QED 1″-Photodetector](https://quantum-electronic-devices.de/en/products/electronics/1-photodetector/).
 
+<p align="center">
+  <img src="images/board.png" width="45%" />
+  <img src="images/1inchPD_back2_BM1A3429_1000px.jpg" width="45%" />
+</p>
+
 ## Contents
 - [Introduction](#introduction)
 - [Datasheet](#datasheet)
@@ -11,7 +16,7 @@ This repository contains the [KiCad](https://www.kicad.org/) schematics and desi
 - [License](#license)
 
 ## Introduction
-The [QED 1″-Photodetector](https://quantum-electronic-devices.de/en/products/electronics/1-photodetector/) is a circular shaped photodetector with an outer diameter of 25.4 mm and a photodiode mounted in the centre. It can be easily integrated into 1″ cage systems, such as Thorlabs' 30 mm cage mounts (e.g. the [CP33/M](https://www.thorlabs.com/item/CP33_M)). This makes the photodetector ideal for reliable and sturdy setups that can be quickly assembled for tasks such as laser power monitoring or intensity stabilisation. It has a [TIA](https://en.wikipedia.org/wiki/Transimpedance_amplifier) gain of 10 kV/A and an additional voltage gain of 5. The bandwidth is 8 MHz. The full specifications can be found in the [datasheet](#datasheet).
+The [QED 1″-Photodetector](https://quantum-electronic-devices.de/en/products/electronics/1-photodetector/) is a circular shaped photodetector with an outer diameter of 25.4 mm and an [Osram SFH 203 photodiode](https://ams-osram.com/products/photodetectors/photodiodes/osram-radial-t1-34-sfh-203) mounted in the centre. It can be easily integrated into 1″ cage systems, such as Thorlabs' 30 mm cage mounts (e.g. the [CP33/M](https://www.thorlabs.com/item/CP33_M)). This makes the photodetector ideal for reliable and sturdy setups that can be quickly assembled for tasks such as laser power monitoring or intensity stabilisation. It has a [TIA](https://en.wikipedia.org/wiki/Transimpedance_amplifier) gain of 10 kV/A and an additional voltage gain of 5. The bandwidth is 8 MHz. The full specifications can be found in the [datasheet](#datasheet).
 
 ## Datasheet
 The datasheet is available with every release and it lists the most important electrical and mechanical specifications. The latest version can be found [here](../../releases/latest/download/datasheet.pdf). Older versions can be found attached to the respective [release](../../releases).
