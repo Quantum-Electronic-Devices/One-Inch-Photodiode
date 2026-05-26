@@ -4,8 +4,8 @@
 This repository contains the [KiCad](https://www.kicad.org/) schematics and design files for the [QED 1″-Photodetector](https://quantum-electronic-devices.de/en/products/electronics/1-photodetector/).
 
 <p align="center">
-  <img src="images/board.png" width="45%" />
-  <img src="images/1inchPD_back2_BM1A3429_1000px.jpg" width="45%" />
+  <img src="images/board.png" width="40%" />
+  <img src="images/1inchPD_back2_BM1A3429_1000px.jpg" width="40%" />
 </p>
 
 ## Contents
