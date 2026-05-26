@@ -1,0 +1,74 @@
+name: "Sync statics"
+inputs:
+  repository:
+     required: true
+     description: "The repository to sync."
+
+  version_file:
+    required: true
+    description: "The file name used to define the static content version."
+
+  remote-token:
+    required: true
+    description: "A token that allows creating a pull request."
+
+  github-token:
+    required: true
+    description: "A token that allows creating a pull request."
+
+runs:
+  using: "composite"
+  steps:
+    - name: Get latest static release tag
+      id: static-release
+      env:
+        GITHUB_TOKEN: ${{ inputs.remote-token }}
+      run: |
+        LATEST_TAG=$(gh api repos/${{ inputs.repository }}/releases/latest --jq ".tag_name")
+        echo "latest_tag=$LATEST_TAG" >> $GITHUB_OUTPUT
+        CURRENT_TAG=$(<"${{ inputs.version_file }}")
+        echo "current_tag=$CURRENT_TAG" >> $GITHUB_OUTPUT
+      shell: bash
+
+    - name: Update statics
+      if: steps.static-release.outputs.current_tag != steps.static-release.outputs.latest_tag
+      env:
+        GITHUB_TOKEN: ${{ inputs.remote-token }}
+      run: |
+        # Download the release
+        gh release download --pattern '*.pdf' -D ./.tmp -R ${{ inputs.repository }}
+        # Update statics
+        for file in ./.tmp/*; do find ./ -type f -name $(basename $file) -not -path '*/.*' -exec cp $file {} \; ; done
+        # Update current release
+        echo "${{ steps.static-release.outputs.latest_tag }}" > ${{ inputs.version_file }}
+      shell: bash
+
+    - name: Create pull request
+      if: steps.static-release.outputs.current_tag != steps.static-release.outputs.latest_tag
+      env:
+        GITHUB_TOKEN: ${{ inputs.github-token }}
+      run: |
+        git config user.name github-actions
+        git config user.email github-actions@github.com
+        git checkout -b update_statics/${{ steps.static-release.outputs.latest_tag }}
+        git add -- . ':!./.tmp'
+        git commit -m "Bumps ${{ inputs.repository }} from ${{ steps.static-release.outputs.current_tag }} to ${{ steps.static-release.outputs.latest_tag }}."
+        git push -u origin update_statics/${{ steps.static-release.outputs.latest_tag }}
+        gh pr create \
+        --title "Bump ${{ inputs.repository }} from ${{ steps.static-release.outputs.current_tag }} to ${{ steps.static-release.outputs.latest_tag }}" \
+        --body "Bumps [${{ inputs.repository }}](https://github.com/${{ inputs.repository }}) from ${{ steps.static-release.outputs.current_tag }} to ${{ steps.static-release.outputs.latest_tag }}." \
+        --label dependencies
+      shell: bash
+
+    - name: Cleanup branch on failure
+      if: failure()
+      env:
+        BRANCH_NAME: update_statics/${{ steps.static-release.outputs.latest_tag }}
+      run: |
+        if git ls-remote --exit-code --heads origin "$BRANCH_NAME" > /dev/null; then
+          echo "Deleting branch $BRANCH_NAME"
+          git push origin --delete "$BRANCH_NAME"
+        else
+          echo "Branch does not exist, skipping"
+        fi
+      shell: bash

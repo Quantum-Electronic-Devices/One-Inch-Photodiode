@@ -1,0 +1,33 @@
+name: Update statics
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 0 * * *"
+  push:
+    paths:
+      - ".github/workflows/update_statics.yml"
+    branches:
+      - master
+      - main
+
+jobs:
+  update-APQ-Logo:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests	: write
+    strategy:
+      matrix:
+        static:
+          - {repo: "Quantum-Electronic-Devices/Logos", version_file: ".logo_version"}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Update statics
+        uses: ./.github/actions/update_statics
+        with:
+          repository: ${{ matrix.static.repo }}
+          version_file: ${{ matrix.static.version_file }}
+          remote-token: ${{ secrets.QED_LOGO_PA }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
